@@ -21,7 +21,7 @@ class ProcessYoutubeScrapperJob implements ShouldQueue
     private array $categories;
     private ScrapperHandler $scrapperHandler;
 
-    public function __construct(array $categories, $min = 1, $max = 2)
+    public function __construct(array $categories, $min = 10, $max = 20)
     {
         $this->categories = $categories;
         $this->scrapperHandler = new ScrapperHandler(

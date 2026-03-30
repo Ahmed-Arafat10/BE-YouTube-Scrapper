@@ -72,7 +72,7 @@ class ScrapperHandler
         foreach ($youtubeItems as $item) {
             $playlistId = $item['id']['playlistId'] ?? null;
             if ($playlistId) {
-                YoutubeEducationalPlaylist::query()->firstOrCreate([
+                YoutubeEducationalPlaylist::query()->updateOrCreate([
                     'yt_playlist_id' => $playlistId
                 ], [
                         'title' => html_entity_decode($item['snippet']['title'] ?? 'Unknown'),

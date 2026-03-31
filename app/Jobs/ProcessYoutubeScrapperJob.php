@@ -38,9 +38,9 @@ class ProcessYoutubeScrapperJob implements ShouldQueue
     public function handle(): void
     {
         try {
-            DB::transaction(function () {
+            //DB::transaction(function () {
                 $this->scrapperHandler->handle($this->categories);
-            });
+            //});
             Cache::put('youtube_scraper_finished', true, 60);
         } catch (Exception $e) {
             dump($e->getMessage());

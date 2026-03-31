@@ -46,11 +46,10 @@ class ScrapperHandler
             if (Cache::has('stop_youtube_scraper')) {
                 break;
             }
-            $this->setPrompt(
-                Str::replaceArray('#CATEGORY#', [$category], $this->prompt)
-            );
             $aiTextResponse = trim(
-                $this->geminiChatBot->sendRequest($this->prompt)
+                $this->geminiChatBot->sendRequest(
+                    Str::replaceArray('#CATEGORY#', [$category], $this->prompt)
+                )
             );
             $titles = $this->processAiTextResponse($aiTextResponse);
             //dd($titles); #DEBUG
